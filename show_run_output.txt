@@ -1,0 +1,23 @@
+configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+ap(config)#hostname aironwifi
+aironwifi(config)#dot11 ssid NetDevOpsWIFI-51rr
+aironwifi(config-ssid)#authentication open
+aironwifi(config-ssid)#authentication key-management wpa
+aironwifi(config-ssid)#wpa-psk ascii C1sc0123
+aironwifi(config-ssid)#guest-mode
+aironwifi(config-ssid)#default Int Dot11Radio 0
+ default bridge-group 1 block-unknown-source <cr> not allowed on Dot11Radio0 interface
+ default bridge-group 1 subscriber-loop-control <cr> not allowed on Dot11Radio0 interface
+%command not allowed, cannot remove bridge-group 1Cannot disable station-role
+
+Interface Dot11Radio0 set to default configuration
+aironwifi(config)#int dot11radio 0
+aironwifi(config-if)#no shut
+aironwifi(config-if)#channel 8
+aironwifi(config-if)#encryption mode ciphers tkip
+aironwifi(config-if)#ssid NetDevOpsWIFI-51rr
+aironwifi(config-if)#bridge-group 1
+aironwifi(config-if)#exit
+aironwifi(config)#end
+aironwifi#
